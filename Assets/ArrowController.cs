@@ -31,6 +31,10 @@ public class ArrowController : MonoBehaviour {
 		float r2 = 1.0f; // プレイヤーの半径
 
 		if(d < r1 + r2){
+			// 監督スクリプトにプレイヤーと衝突したことを伝える
+			GameObject director = GameObject.Find("GameDirector");
+			director.GetComponent<GameDirector>().DecreaseHp();
+
 			Destroy(gameObject); //衝突した場合は、矢を消す
 		}
 	}
